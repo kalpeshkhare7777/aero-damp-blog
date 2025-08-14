@@ -1,0 +1,31 @@
+/* Re-using styles from ProjectReviewsPage for consistency */
+@import '../ProjectReviewsPage/ProjectReviewsPage.css';
+
+/* Override from imported stylesheet to center the title text */
+.category-title {
+    text-align: center;
+}
+
+.members-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Grid for DAMPC (2 members) */
+.dampc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 600px; /* Limit width for 2 members */
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Grid for DAMP members */
+.damp-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .dampc-grid {
+        grid-template-columns: 1fr; /* Stack on small screens */
+    }
+}

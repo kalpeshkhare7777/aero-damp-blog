@@ -1,0 +1,14 @@
+/* Using shared styles from HomePage.css for consistency */
+@import '../HomePage/HomePage.css';
+
+.page-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.page-text {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    text-align: left; /* Or center, depending on preference */
+}
