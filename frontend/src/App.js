@@ -11,7 +11,10 @@ import CourseDetailPage from './pages/CourseDetailPage/CourseDetailPage';
 import ProjectReviewsPage from './pages/ProjectReviewsPage/ProjectReviewsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage/ProjectDetailPage';
 import CouncilPage from './pages/CouncilPage/CouncilPage';
-import FAQPage from './pages/FAQPage/FAQPage'; // Import new page
+import FAQPage from './pages/FAQPage/FAQPage';
+import MentalHealthPage from './pages/MentalHealthPage/MentalHealthPage';
+import FacultyAdvisorsPage from './pages/FacultyAdvisorsPage/FacultyAdvisorsPage';
+import NptelCoursesPage from './pages/NPTELCoursesPage/NPTELCoursesPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -44,8 +47,14 @@ function App() {
         return <ProjectDetailPage project={selectedProject} onBackClick={() => setCurrentPage('projects')} />;
       case 'council':
         return <CouncilPage />;
-      case 'faq': // Add case for FAQ page
+      case 'faq':
         return <FAQPage />;
+      case 'mentalHealth':
+        return <MentalHealthPage />;
+      case 'facultyAdvisors': // Add case for new page
+        return <FacultyAdvisorsPage />;
+      case 'nptelCourses': // Add case for new page
+        return <NptelCoursesPage />;
       case 'home':
       default:
         return <HomePage />;
