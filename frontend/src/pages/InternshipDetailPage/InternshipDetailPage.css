@@ -1,0 +1,56 @@
+.detail-container {
+    background-color: var(--color-surface);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.detail-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-primary);
+}
+
+.detail-name {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.detail-role {
+    margin: 0.25rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+}
+
+.detail-year {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.detail-section {
+    padding-top: 1.5rem;
+}
+
+.detail-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.detail-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}

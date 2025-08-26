@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './CourseReviewsPage.css';
-import { courses } from '../../data/courses';
-import CourseCard from '../../components/CourseCard/CourseCard';
+import { courseReviews } from '../../data/courseReviews';
+import CourseSummaryCard from '../../components/CourseSummaryCard/CourseSummaryCard';
 
-// Receive onCourseSelect function as a prop
 function CourseReviewsPage({ onCourseSelect }) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredCourses = courses.filter(course =>
-    course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    course.code.toLowerCase().includes(searchTerm.toLowerCase())
+  // Group reviews by course code to get unique courses
+  const uniqueCourses = useMemo(() => {
+    const coursesMap = new Map();
+    courseReviews.forEach(review => {
+      if (!coursesMap.has(review.courseCode)) {
+        coursesMap.set(review.courseCode, {
+          courseCode: review.courseCode,
+          courseName: review.courseName,
+          instructor: review.instructor,
+          reviewCount: 0,
+        });
+      }
+      coursesMap.get(review.courseCode).reviewCount++;
+    });
+    return Array.from(coursesMap.values());
+  }, []);
+
+  const filteredCourses = uniqueCourses.filter(course =>
+    course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    course.instructor.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -17,7 +33,7 @@ function CourseReviewsPage({ onCourseSelect }) {
       <div className="search-container">
         <input
           type="text"
-          placeholder="Search by course name or code (e.g., AE 101)..."
+          placeholder="Search by course name or instructor..."
           className="search-bar"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -26,11 +42,10 @@ function CourseReviewsPage({ onCourseSelect }) {
       <div className="course-list">
         {filteredCourses.length > 0 ? (
           filteredCourses.map(course => (
-            // Pass the onCourseSelect function to each card
-            <CourseCard 
-              key={course.id} 
-              course={course} 
-              onCardClick={onCourseSelect} 
+            <CourseSummaryCard
+              key={course.courseCode}
+              course={course}
+              onCardClick={onCourseSelect}
             />
           ))
         ) : (

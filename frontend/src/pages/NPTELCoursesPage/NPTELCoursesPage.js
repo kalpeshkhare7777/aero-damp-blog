@@ -1,5 +1,5 @@
 import React from 'react';
-import './NPTELCoursesPage.css';
+import './NptelCoursesPage.css';
 
 function NptelCoursesPage() {
   return (

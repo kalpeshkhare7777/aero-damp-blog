@@ -1,0 +1,54 @@
+.internship-card {
+    background-color: var(--color-surface);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.internship-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.internship-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-primary);
+}
+
+.internship-summary {
+    flex-grow: 1;
+    position: relative;
+}
+
+.internship-name {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.internship-detail {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+
+.internship-year {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}

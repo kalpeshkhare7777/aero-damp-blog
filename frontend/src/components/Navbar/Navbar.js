@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Home, Info, Mail, Rocket, BookOpen, Layers, Users, HelpCircle, HeartHandshake, UserCheck, Tv2, MoreVertical } from 'lucide-react';
+import { Home, Info, Rocket, BookOpen, Layers, Users, HelpCircle, HeartHandshake, UserCheck, Tv2, MoreVertical, Briefcase, Link } from 'lucide-react';
 import './Navbar.css';
 
 // Reusable Navigation Item Component
@@ -17,24 +17,20 @@ function MoreDropdown({ setCurrentPage }) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // This function handles clicks on the menu items
     const handleLinkClick = (page) => {
         setCurrentPage(page);
-        setIsOpen(false); // Close the menu after a selection is made
+        setIsOpen(false); 
     };
 
-    // This effect handles clicks outside of the dropdown to close it
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setIsOpen(false);
             }
         };
-        // Add event listener when the dropdown is open
         if (isOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         }
-        // Cleanup the event listener
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
@@ -45,9 +41,10 @@ function MoreDropdown({ setCurrentPage }) {
             className="nav-item-dropdown-container"
             ref={dropdownRef}
         >
-            {/* This button now toggles the menu on click */}
+            {/* Updated this button to include the text "More" */}
             <button onClick={() => setIsOpen(!isOpen)} className="nav-item">
-                <MoreVertical size={20} />
+                <MoreVertical size={18} />
+                <span className="nav-item-label">More</span>
             </button>
             {isOpen && (
                 <div className="dropdown-menu dropdown-menu-right">
@@ -85,9 +82,10 @@ function Navbar({ setCurrentPage }) {
                     <NavItem icon={<Info size={18}/>} label="About" onClick={() => setCurrentPage('about')} />
                     <NavItem icon={<BookOpen size={18}/>} label="Courses" onClick={() => setCurrentPage('reviews')} />
                     <NavItem icon={<Layers size={18}/>} label="Projects" onClick={() => setCurrentPage('projects')} />
+                    <NavItem icon={<Briefcase size={18}/>} label="Careers" onClick={() => setCurrentPage('careers')} />
                     <NavItem icon={<Users size={18}/>} label="Council" onClick={() => setCurrentPage('council')} />
+                    <NavItem icon={<Link size={18}/>} label="Links" onClick={() => setCurrentPage('links')} />
                     <NavItem icon={<HelpCircle size={18}/>} label="FAQ" onClick={() => setCurrentPage('faq')} />
-                    <NavItem icon={<Mail size={18}/>} label="Contact" onClick={() => setCurrentPage('contact')} />
                     <div className="nav-divider"></div>
                     <MoreDropdown setCurrentPage={setCurrentPage} />
                 </div>
