@@ -1,17 +1,39 @@
 import React from 'react';
-import './ProjectCard.css';
-import { Layers } from 'lucide-react';
+// Imports its own CSS file
+import './ProjectCard.css'; 
+// Added Building2 icon import
+import { User, Book, Building, Building2 } from 'lucide-react';
 
-// Reusable card for displaying a single project
-function ProjectCard({ project, onCardClick }) {
+function ProjectCard({ project, onProjectSelect }) {
+  const { topic, professor, studentName, anonymous, department } = project;
+  
+  const displayName = anonymous ? 'Anonymous' : studentName;
+
   return (
-    <div className="project-card" onClick={() => onCardClick(project)}>
-      <div className="project-card-icon">
-        <Layers size={32} />
+    // Updated className to match ProjectCard.css
+    <div className="project-card" onClick={() => onProjectSelect(project)}>
+      {/* Header: Topic */}
+      <div className="project-card-header">
+        <Book size={20} className="project-card-icon" />
+        <h3 className="project-card-title">{topic}</h3>
       </div>
-      <div className="project-card-content">
-        <h3 className="project-card-title">{project.name}</h3>
-        <p className="project-card-description">{project.description}</p>
+      
+      {/* Department Row */}
+      <div className="info-row2">
+          <Building2 size={16} />
+          <span>{department}</span>
+        </div>
+
+      {/* Body: Student & Prof */}
+      <div className="project-card-body">
+        <div className="info-row">
+          <User size={16} />
+          <span>{displayName}</span>
+        </div>
+        <div className="info-row">
+          <Building size={16} />
+          <span>Prof. {professor}</span>
+        </div>
       </div>
     </div>
   );

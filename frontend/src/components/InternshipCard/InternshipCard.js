@@ -1,14 +1,29 @@
 import React from 'react';
-import './InternshipCard.css';
+import './InternshipCard.css'; 
+import { User, Briefcase, BarChart2 } from 'lucide-react';
 
 function InternshipCard({ experience, onCardClick }) {
+  const { name, company, domain } = experience;
+
   return (
     <div className="internship-card" onClick={() => onCardClick(experience)}>
-      <img src={experience.photoUrl} alt={`Photo of ${experience.name}`} className="internship-photo" />
-      <div className="internship-summary">
-        <h3 className="internship-name">{experience.name}</h3>
-        <p className="internship-detail">{experience.company} | {experience.profile}</p>
-        <span className="internship-year">{experience.year}</span>
+      {/* Header: Company */}
+      <div className="internship-card-header">
+        <Briefcase size={20} className="internship-card-icon" />
+        <h3 className="internship-card-title">{company}</h3>
+      </div>
+      
+      {/* Body: Domain & Student Name */}
+      {/* Both info rows are now inside the body, which removes the large gap */}
+      <div className="internship-card-body">
+        <div className="info-row2">
+            <BarChart2 size={16} />
+            <span>{domain}</span>
+        </div>
+        <div className="info-row">
+          <User size={16} />
+          <span>{name}</span>
+        </div>
       </div>
     </div>
   );
