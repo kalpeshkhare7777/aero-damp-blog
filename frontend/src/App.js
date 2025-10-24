@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-// Import the full list of reviews to pass to the detail page
-import { courseReviews } from './data/courseReviews';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -26,6 +24,8 @@ import ResearchDetailPage from './pages/ResearchDetailPage/ResearchDetailPage';
 import MastersPage from './pages/MastersPage/MastersPage';
 import MastersDetailPage from './pages/MastersDetailPage/MastersDetailPage';
 import LinksPage from './pages/LinksPage/LinksPage';
+// import HandbookPage from './pages/HandbookPage/HandbookPage';
+import ApodPage from './pages/ApodPage/ApodPage'; // Import the new page
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -73,11 +73,7 @@ function App() {
       case 'reviews':
         return <CourseReviewsPage onCourseSelect={handleCourseSelect} />;
       case 'courseDetail':
-        return <CourseDetailPage 
-                    courseCode={selectedCourseCode} 
-                    reviews={courseReviews} 
-                    onBackClick={() => setCurrentPage('reviews')} 
-                />;
+        return <CourseDetailPage courseCode={selectedCourseCode} reviews={[]} onBackClick={() => setCurrentPage('reviews')} />;
       case 'projects':
         return <ProjectReviewsPage onProjectSelect={handleProjectSelect} />;
       case 'projectDetail':
@@ -112,9 +108,13 @@ function App() {
         return <MastersDetailPage experience={selectedMasters} onBackClick={() => setCurrentPage('masters')} />;
       case 'links':
         return <LinksPage />;
+      // case 'handbook':
+        // return <HandbookPage />;
+      case 'apod': // Add case for the new APOD page
+        return <ApodPage onBackClick={() => setCurrentPage('home')} />;
       case 'home':
       default:
-        return <HomePage />;
+        return <HomePage setCurrentPage={setCurrentPage} />;
     }
   };
 

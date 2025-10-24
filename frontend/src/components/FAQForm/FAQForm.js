@@ -4,7 +4,6 @@ import './FAQForm.css';
 function FAQForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real application, this would send the data to a server.
     alert('Your doubt has been submitted!');
     e.target.reset(); // Clear the form
   };

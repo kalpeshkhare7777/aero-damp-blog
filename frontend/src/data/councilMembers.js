@@ -1,8 +1,8 @@
 // Mock data for council members, now using the local member.png.
 export const councilMembers = [
     // DAMPC Members
-    { id: 601, category: 'DAMPC', name: 'Full Name', email: 'email@gmail.com', imageUrl: '/member.png' },
-    { id: 602, category: 'DAMPC', name: 'Full Name', email: 'email@gmail.com', imageUrl: '/member.png' },
+    { id: 601, category: 'DAMPC', name: 'Full Name', email: 'email@gmail.com', imageUrl: './member.png' },
+    { id: 602, category: 'DAMPC', name: 'Full Name', email: 'email@gmail.com', imageUrl: './member.png' },
   
     // DAMP Members
     { id: 701, category: 'DAMP', name: 'Full Name', email: 'email@gmail.com', imageUrl: '/member.png' },
