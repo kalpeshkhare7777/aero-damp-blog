@@ -8,10 +8,10 @@ export const councilMembers = [
   { id: 725, category: 'Continuing DAMP', name: 'Shah Kunj Vipul', email: 'shahkunj2004@gmail.com', contact: '9510208166', imageUrl: `${process.env.PUBLIC_URL}/council/kunj.jpg` },
   { id: 726, category: 'Continuing DAMP', name: 'Tarshit Sehgal', email: 'tarshitsehgal@gmail.com', contact: '8847484635', imageUrl: `${process.env.PUBLIC_URL}/council/Tarshit.png` },
   { id: 727, category: 'Continuing DAMP', name: 'Ananditha Somannagari', email: 'anandithas2021@gmail.com', contact: '8639630018', imageUrl: `${process.env.PUBLIC_URL}/council/Anandhita.jpg` },
-  { id: 728, category: 'Continuing DAMP', name: 'Palak Jain', email: 'palak.aeroiitb@gmail.com', contact: '9460991561', imageUrl: `${process.env.PUBLIC_URL}/council/palak.jpg` },
+  { id: 728, category: 'Continuing DAMP', name: 'Palak Jain', email: 'palak.aeroiitb@gmail.com', contact: '9460991561', imageUrl: `${process.env.PUBLIC_URL}/council/Palak.jpg` },
 
   // DAMP Members
-  { id: 701, category: 'DAMP', name: 'Kaavya Rao Oruganti', email: 'kaavyaoruganti@gmail.com', contact: '9666070697', imageUrl: `${process.env.PUBLIC_URL}/council/kaavya.jpg` },
+  { id: 701, category: 'DAMP', name: 'Kaavya Rao Oruganti', email: 'kaavyaoruganti@gmail.com', contact: '9666070697', imageUrl: `${process.env.PUBLIC_URL}/council/Kaavya.jpg` },
   { id: 702, category: 'DAMP', name: 'Urvi Lohana', email: 'lohanaurvi@gmail.com', contact: '8369888070', imageUrl: `${process.env.PUBLIC_URL}/council/Urvi.jpg` },
   { id: 703, category: 'DAMP', name: 'Dipti Meshram', email: 'meshramdipti229@gmail.com', contact: '9977160680', imageUrl: `${process.env.PUBLIC_URL}/council/Dipti.jpeg` },
   { id: 704, category: 'DAMP', name: 'Krupa Guruprasad Pai', email: 'krupaagpai20@gmail.com', contact: '9833370147', imageUrl: `${process.env.PUBLIC_URL}/council/Krupa.jpg` },
@@ -26,7 +26,7 @@ export const councilMembers = [
   { id: 713, category: 'DAMP', name: 'Divya Nayan Mehta', email: 'divyanayanmehtaoo7@gmail.com', contact: '9372600710', imageUrl: `${process.env.PUBLIC_URL}/council/Divya.jpg` },
   { id: 714, category: 'DAMP', name: 'Kshitij Pravin Malve', email: 'malvekshitij3006@gmail.com', contact: '7666686840', imageUrl: `${process.env.PUBLIC_URL}/council/kshitij.jpg`},
   { id: 715, category: 'DAMP', name: 'M Aditya', email: 'aditya_murali@icloud.com', contact: '9384674042', imageUrl: `${process.env.PUBLIC_URL}/council/Aditya.jpg` },
-  { id: 716, category: 'DAMP', name: 'Ayush Jha', email: 'jhaayush1081@gmail.com', contact: '9702214930', imageUrl: `${process.env.PUBLIC_URL}/icon.png` },
+  { id: 716, category: 'DAMP', name: 'Ayush Jha', email: 'jhaayush1081@gmail.com', contact: '9702214930', imageUrl: `${process.env.PUBLIC_URL}/council/ayushjha.jpg` },
   { id: 717, category: 'DAMP', name: 'Dawar Jyoti Deka', email: 'dawar.iitb@gmail.com', contact: '9678459743', imageUrl: `${process.env.PUBLIC_URL}/council/dawar.jpg` },
   { id: 718, category: 'DAMP', name: 'Ainsley Fernandes', email: 'Ainsley2630@gmail.com', contact: '9325742392', imageUrl: `${process.env.PUBLIC_URL}/council/Ainsley.jpg` },
   { id: 719, category: 'DAMP', name: 'Avdhoot Golekar', email: 'avdhootgolekar0128@gmail.com', contact: '7620563973', imageUrl: `${process.env.PUBLIC_URL}/council/avdhoot.jpeg` },

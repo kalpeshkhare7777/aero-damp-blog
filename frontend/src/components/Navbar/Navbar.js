@@ -121,7 +121,8 @@ function Navbar() {
       <div className="navbar-content-full">
         {/* Updated handlers to set hash */}
         <div className="logo" onClick={() => window.location.hash = 'home'}>
-          <LogoIcon />
+          {/* Replaced <LogoIcon /> with <img> tag */}
+          <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="DAMP Logo" className="logo-icon" />
           <span className="logo-text">
             DAMP <span className="logo-text-light">Aerospace</span>
           </span>

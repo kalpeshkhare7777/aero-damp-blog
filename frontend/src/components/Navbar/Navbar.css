@@ -10,16 +10,15 @@
     /* transform: translateX(-50%); */
 }
 
-/* Renamed to match your Navbar.js component and added centering */
 .navbar-content-full {
     display: flex;
     align-items: center;
-    /* This centers your navigation links */
-    justify-content: center; 
+    /* Changed back to space-between to separate logo and links */
+    justify-content: space-between; 
     height: 5rem; /* 80px */
     /* Use the same max-width and padding as your main 'container' class */
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0 2rem; 
     box-sizing: border-box; /* Ensures padding is included in width */
 }
@@ -28,12 +27,14 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-right: 0.5 rem;
 }
 
 .logo-icon {
-    height: 2rem; /* 32px */
-    width: 2rem;
-    color: var(--color-primary);
+    height: 5rem; /* 40px */
+    width: 5rem; /* 40px */
+    /* color: var(--color-primary); This line is not needed for an img tag */
+    object-fit: contain; /* Ensures your logo scales nicely */
 }
 
 .logo-text {
@@ -41,6 +42,7 @@
     font-size: 1.25rem;
     font-weight: bold;
     color: var(--color-text);
+    margin-right: 0.75rem;
 }
 
 .logo-text-light {
@@ -149,4 +151,3 @@
 .dropdown-item-label {
     margin-left: 0.75rem;
 }
-
