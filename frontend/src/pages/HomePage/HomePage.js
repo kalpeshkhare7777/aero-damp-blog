@@ -27,7 +27,7 @@ function HomePage({ onNavigate }) {
             <div className="home-content">
                 <h1 className="home-title">DAMP Aerospace</h1>
                 <p className="home-subtitle">
-                    Welcome to the digital gateway of the Aerospace Engineering department at IIT Bombay. This platform is your central resource for the Department of Aerospace and Motivational Programme (DAMP), designed to connect students with enriching projects, comprehensive course reviews, and our dedicated council.
+                    Welcome to the digital gateway of the Aerospace Engineering department at IIT Bombay. This platform is your central resource for the Department Academic Mentorship Program (DAMP), designed to connect students with enriching projects, comprehensive course reviews, and our dedicated council.
                 </p>
                 {/* Updated button to use onNavigate */}
                 {/* <button 
