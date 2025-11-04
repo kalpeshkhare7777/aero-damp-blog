@@ -5,7 +5,7 @@ export const councilMembers = [
 
   // Continuing DAMPs
   { id: 724, category: 'Continuing DAMP', name: 'Kalpesh Khare', email: 'kalpeshkhare7777@gmail.com', contact: '9022513006', imageUrl: `${process.env.PUBLIC_URL}/council/Kalpesh.jpg` },
-  { id: 725, category: 'Continuing DAMP', name: 'Shah Kunj Vipul', email: '', contact: '9510208166', imageUrl: `${process.env.PUBLIC_URL}/icon.png` },
+  { id: 725, category: 'Continuing DAMP', name: 'Shah Kunj Vipul', email: 'shahkunj2004@gmail.com', contact: '9510208166', imageUrl: `${process.env.PUBLIC_URL}/council/kunj .jpg` },
   { id: 726, category: 'Continuing DAMP', name: 'Tarshit Sehgal', email: '', contact: '8847484635', imageUrl: `${process.env.PUBLIC_URL}/council/Tarshit.png` },
   { id: 727, category: 'Continuing DAMP', name: 'Ananditha Somannagari', email: '', contact: '8639630018', imageUrl: `${process.env.PUBLIC_URL}/council/Anandhita.jpg` },
   { id: 728, category: 'Continuing DAMP', name: 'Palak Jain', email: '', contact: '9460991561', imageUrl: `${process.env.PUBLIC_URL}/council/palak.jpg` },

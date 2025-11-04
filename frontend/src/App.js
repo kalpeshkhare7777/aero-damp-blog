@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
@@ -24,8 +24,8 @@ import ResearchDetailPage from './pages/ResearchDetailPage/ResearchDetailPage';
 import MastersPage from './pages/MastersPage/MastersPage';
 import MastersDetailPage from './pages/MastersDetailPage/MastersDetailPage';
 import LinksPage from './pages/LinksPage/LinksPage';
+import ApodPage from './pages/ApodPage/ApodPage';
 import HandbookPage from './pages/HandbookPage/HandbookPage';
-import ApodPage from './pages/ApodPage/ApodPage'; // Import the new page
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -36,34 +36,74 @@ function App() {
   const [selectedResearch, setSelectedResearch] = useState(null);
   const [selectedMasters, setSelectedMasters] = useState(null);
 
+  // This effect runs on page load and when the hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1); // Get hash value, remove '#'
+      const [page, id] = hash.split('/'); // Split 'courseDetail/AE241'
+
+      // If no hash, default to home
+      if (!page) {
+        setCurrentPage('home');
+        return;
+      }
+
+      // Update state based on hash
+      setCurrentPage(page);
+
+      // Handle detail pages
+      if (page === 'courseDetail' && id) setSelectedCourseCode(id);
+      // Note: Other detail pages use objects, which we can't store in a URL.
+      // We will handle them with the 'select' functions below.
+      // This implementation will restore the main page (e.g., 'reviews')
+      // but not the specific item.
+    };
+
+    // Listen for hash changes (back/forward buttons)
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Run on initial load
+    handleHashChange();
+
+    // Clean up listener
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []); // Empty array means this runs once on mount and sets up listener
+
+  // --- Navigation Handlers (Updated to set hash) ---
+
   const handleCourseSelect = (courseCode) => {
     setSelectedCourseCode(courseCode);
-    setCurrentPage('courseDetail');
+    window.location.hash = `courseDetail/${courseCode}`;
   };
 
   const handleProjectSelect = (project) => {
     setSelectedProject(project);
-    setCurrentPage('projectDetail');
+    window.location.hash = 'projectDetail';
   };
 
   const handleInternshipSelect = (internship) => {
     setSelectedInternship(internship);
-    setCurrentPage('internshipDetail');
+    window.location.hash = 'internshipDetail';
   };
 
   const handleJobSelect = (job) => {
     setSelectedJob(job);
-    setCurrentPage('jobDetail');
+    window.location.hash = 'jobDetail';
   };
 
   const handleResearchSelect = (research) => {
     setSelectedResearch(research);
-    setCurrentPage('researchDetail');
+    window.location.hash = 'researchDetail';
   };
 
   const handleMastersSelect = (masters) => {
     setSelectedMasters(masters);
-    setCurrentPage('mastersDetail');
+    window.location.hash = 'mastersDetail';
+  };
+
+  // Generic "back" handler
+  const goBack = (hash) => {
+    window.location.hash = hash;
   };
 
   const renderPage = () => {
@@ -73,11 +113,11 @@ function App() {
       case 'reviews':
         return <CourseReviewsPage onCourseSelect={handleCourseSelect} />;
       case 'courseDetail':
-        return <CourseDetailPage courseCode={selectedCourseCode} reviews={[]} onBackClick={() => setCurrentPage('reviews')} />;
+        return <CourseDetailPage courseCode={selectedCourseCode} onBackClick={() => goBack('reviews')} />;
       case 'projects':
         return <ProjectReviewsPage onProjectSelect={handleProjectSelect} />;
       case 'projectDetail':
-        return <ProjectDetailPage project={selectedProject} onBackClick={() => setCurrentPage('projects')} />;
+        return <ProjectDetailPage project={selectedProject} onBackClick={() => goBack('projects')} />;
       case 'council':
         return <CouncilPage />;
       case 'faq':
@@ -89,38 +129,41 @@ function App() {
       case 'nptelCourses':
         return <NptelCoursesPage />;
       case 'careers':
-        return <CareersPage setCurrentPage={setCurrentPage} />;
+        // We pass a simple function to set the hash
+        return <CareersPage onNavigate={(page) => window.location.hash = page} />;
       case 'internships':
         return <InternshipsPage onInternshipSelect={handleInternshipSelect} />;
       case 'internshipDetail':
-        return <InternshipDetailPage experience={selectedInternship} onBackClick={() => setCurrentPage('internships')} />;
+        return <InternshipDetailPage experience={selectedInternship} onBackClick={() => goBack('internships')} />;
       case 'jobs':
         return <JobsPage onJobSelect={handleJobSelect} />;
       case 'jobDetail':
-        return <JobDetailPage experience={selectedJob} onBackClick={() => setCurrentPage('jobs')} />;
+        return <JobDetailPage job={selectedJob} onBackClick={() => goBack('jobs')} />;
       case 'research':
         return <ResearchPage onResearchSelect={handleResearchSelect} />;
       case 'researchDetail':
-        return <ResearchDetailPage experience={selectedResearch} onBackClick={() => setCurrentPage('research')} />;
+        return <ResearchDetailPage research={selectedResearch} onBackClick={() => goBack('research')} />;
       case 'masters':
         return <MastersPage onMastersSelect={handleMastersSelect} />;
       case 'mastersDetail':
-        return <MastersDetailPage experience={selectedMasters} onBackClick={() => setCurrentPage('masters')} />;
+        return <MastersDetailPage masters={selectedMasters} onBackClick={() => goBack('masters')} />;
       case 'links':
         return <LinksPage />;
+      case 'apod':
+        return <ApodPage onBackClick={() => goBack('home')} />;
       case 'handbook':
         return <HandbookPage />;
-      case 'apod': // Add case for the new APOD page
-        return <ApodPage onBackClick={() => setCurrentPage('home')} />;
       case 'home':
       default:
-        return <HomePage setCurrentPage={setCurrentPage} />;
+        // Pass the navigation function
+        return <HomePage onNavigate={(page) => window.location.hash = page} />;
     }
   };
 
   return (
     <div className="app-container">
-      <Navbar setCurrentPage={setCurrentPage} />
+      {/* Navbar now just sets hashes, App.js listens */}
+      <Navbar />
       <main className="main-content container">
         {renderPage()}
       </main>

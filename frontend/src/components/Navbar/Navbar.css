@@ -4,18 +4,30 @@
     position: sticky;
     top: 0;
     z-index: 50;
+    /* Allow navbar to break out of the main page container */
+    width: 100vw;
+    left: 50%;
+    /* transform: translateX(-50%); */
 }
 
-.navbar-content {
+/* Renamed to match your Navbar.js component and added centering */
+.navbar-content-full {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* This centers your navigation links */
+    justify-content: center; 
     height: 5rem; /* 80px */
+    /* Use the same max-width and padding as your main 'container' class */
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem; 
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .logo-icon {
@@ -67,6 +79,15 @@
     margin-left: 0.5rem;
 }
 
+/* Arrow for dropdown */
+.dropdown-arrow {
+    margin-left: 0.25rem;
+    transition: transform 0.2s ease-in-out;
+}
+.dropdown-arrow.is-open {
+    transform: rotate(180deg);
+}
+
 .nav-divider {
     width: 1px;
     height: 24px;
@@ -93,6 +114,13 @@
     animation: fade-in 0.2s ease-out;
 }
 
+/* Animation for dropdown */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
 .dropdown-menu-right {
     right: 0; /* Aligns the dropdown to the right */
     left: auto;
@@ -118,6 +146,7 @@
     color: var(--color-primary);
 }
 
-.dropdown-item-icon {
-    margin-right: 0.75rem;
+.dropdown-item-label {
+    margin-left: 0.75rem;
 }
+
