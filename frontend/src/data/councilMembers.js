@@ -1,14 +1,14 @@
 export const councilMembers = [
   // DAMPC Members
-  { id: 601, category: 'DAMPC', name: 'Ayush Singh', email: 'email@gmail.com', contact: '8077563718', imageUrl: `${process.env.PUBLIC_URL}/icon.png` },
+  { id: 601, category: 'DAMPC', name: 'Ayush Singh', email: 'ayushetah27@gmail.com', contact: '8077563718', imageUrl: `${process.env.PUBLIC_URL}/council/ayushsingh.jpg` },
   { id: 602, category: 'DAMPC', name: 'Gouri Rathi', email: 'email@gmail.com', contact: '8955395900', imageUrl: `${process.env.PUBLIC_URL}/icon.png` },
 
   // Continuing DAMPs
   { id: 724, category: 'Continuing DAMP', name: 'Kalpesh Khare', email: 'kalpeshkhare7777@gmail.com', contact: '9022513006', imageUrl: `${process.env.PUBLIC_URL}/council/Kalpesh.jpg` },
-  { id: 725, category: 'Continuing DAMP', name: 'Shah Kunj Vipul', email: 'shahkunj2004@gmail.com', contact: '9510208166', imageUrl: `${process.env.PUBLIC_URL}/council/kunj .jpg` },
-  { id: 726, category: 'Continuing DAMP', name: 'Tarshit Sehgal', email: '', contact: '8847484635', imageUrl: `${process.env.PUBLIC_URL}/council/Tarshit.png` },
-  { id: 727, category: 'Continuing DAMP', name: 'Ananditha Somannagari', email: '', contact: '8639630018', imageUrl: `${process.env.PUBLIC_URL}/council/Anandhita.jpg` },
-  { id: 728, category: 'Continuing DAMP', name: 'Palak Jain', email: '', contact: '9460991561', imageUrl: `${process.env.PUBLIC_URL}/council/palak.jpg` },
+  { id: 725, category: 'Continuing DAMP', name: 'Shah Kunj Vipul', email: 'shahkunj2004@gmail.com', contact: '9510208166', imageUrl: `${process.env.PUBLIC_URL}/council/kunj.jpg` },
+  { id: 726, category: 'Continuing DAMP', name: 'Tarshit Sehgal', email: 'tarshitsehgal@gmail.com', contact: '8847484635', imageUrl: `${process.env.PUBLIC_URL}/council/Tarshit.png` },
+  { id: 727, category: 'Continuing DAMP', name: 'Ananditha Somannagari', email: 'anandithas2021@gmail.com', contact: '8639630018', imageUrl: `${process.env.PUBLIC_URL}/council/Anandhita.jpg` },
+  { id: 728, category: 'Continuing DAMP', name: 'Palak Jain', email: 'palak.aeroiitb@gmail.com', contact: '9460991561', imageUrl: `${process.env.PUBLIC_URL}/council/palak.jpg` },
 
   // DAMP Members
   { id: 701, category: 'DAMP', name: 'Kaavya Rao Oruganti', email: 'kaavyaoruganti@gmail.com', contact: '9666070697', imageUrl: `${process.env.PUBLIC_URL}/council/kaavya.jpg` },

@@ -3,9 +3,9 @@ export const importantLinks = [
     {
       id: 1301,
       category: 'Community & Social',
-      name: 'AEA Instagram Page',
-      description: 'Follow the official Aerospace Engineering Association for updates and events.',
-      url: 'https://www.instagram.com' // Replace with actual URL
+      name: 'Aero DAMP Instagram Page',
+      description: 'Follow the official Aerospace Engineering DAMP for updates and events.',
+      url: 'https://www.instagram.com/aero_damp_iitb?igsh=MTJzMnRkM2lrdzdxbg==' // Replace with actual URL
     },
     {
       id: 1302,
