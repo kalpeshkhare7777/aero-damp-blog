@@ -1,7 +1,6 @@
 import React from 'react';
 import './HomePage.css';
 import backgroundVideo from './bgvid.mp4';
-import { Rocket } from 'lucide-react';
 
 function HomePage({ setCurrentPage }) {
     return (
@@ -25,12 +24,12 @@ function HomePage({ setCurrentPage }) {
                 </p>
                 
                 {/* Button to navigate to the new APOD page */}
-                <button 
+                {/* <button 
                     onClick={() => setCurrentPage('apod')}
                     className="button button-primary apod-button"
                 >
                     <span> Astronomy Picture of the Day</span>
-                </button>
+                </button> */}
             </div>
         </div>
     );

@@ -1,65 +1,111 @@
 import React, { useState, useEffect } from 'react';
 import './ApodPage.css';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Loader2, AlertTriangle } from 'lucide-react';
 
-// NASA APOD (Astronomy Picture of the Day) API Endpoint
-const API_KEY = 'DEMO_KEY'; // Using NASA's demo key
-const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+// Helper function to get last year's date in YYYY-MM-DD format
+const getLastYearsDate = () => {
+  const today = new Date();
+  today.setFullYear(today.getFullYear() - 1);
+  
+  const year = today.getFullYear();
+  // getMonth() is 0-indexed, so we add 1
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  
+  return `${year}-${month}-${day}`;
+};
+
+// Use your provided API key
+const API_KEY = 'EsHDb7VCgIKIAgdgcY12VC6wBQtHMuc9ngOMSYoQ'; 
 
 function ApodPage({ onBackClick }) {
-    const [apodData, setApodData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [apodData, setApodData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchApodData = async () => {
-            setIsLoading(true);
-            try {
-                const response = await fetch(API_URL);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data from NASA API');
-                }
-                const data = await response.json();
-                setApodData(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+  useEffect(() => {
+    const fetchApod = async () => {
+      setLoading(true);
+      try {
+        // Get the date string for last year
+        const date = getLastYearsDate();
+        
+        // Add the date parameter and your API key to the URL
+        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setApodData(data);
+      } catch (e) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        fetchApodData();
-    }, []);
+    fetchApod();
+  }, []); // Empty dependency array means this runs once on mount
 
-    return (
-        <div className="apod-page-container animate-fade-in">
-             <button onClick={onBackClick} className="back-button">
-                <ArrowLeft size={18} /> Back to Home
-            </button>
-
-            {isLoading && <div className="loading-spinner"></div>}
-            
-            {error && <div className="error-message">
-                <h2>Could Not Load Image</h2>
-                <p>{error}</p>
-            </div>}
-
-            {apodData && (
-                <div className="apod-content">
-                    <h1 className="apod-title">{apodData.title}</h1>
-                    <div className="image-container">
-                        <img 
-                            src={apodData.media_type === 'image' ? apodData.hdurl || apodData.url : apodData.thumbnail_url} 
-                            alt={apodData.title} 
-                            className="apod-image" 
-                        />
-                         {apodData.copyright && <p className="apod-copyright">Image Credit & Copyright: {apodData.copyright}</p>}
-                    </div>
-                    <p className="apod-explanation">{apodData.explanation}</p>
-                </div>
-            )}
+  const renderContent = () => {
+    if (loading) {
+      return (
+        <div className="apod-loading">
+          <Loader2 size={48} className="animate-spin" />
+          <p>Fetching image from one year ago today...</p>
         </div>
-    );
+      );
+    }
+
+    if (error) {
+      return (
+        <div className="apod-error">
+          <AlertTriangle size={48} />
+          <p>Could not fetch data. {error}</p>
+        </div>
+      );
+    }
+
+    if (apodData) {
+      return (
+        <>
+          <h1 className="apod-title">{apodData.title}</h1>
+          <p className="apod-date">From: {apodData.date}</p>
+          
+          {apodData.media_type === 'image' ? (
+            <img src={apodData.hdurl || apodData.url} alt={apodData.title} className="apod-image" />
+          ) : (
+            <iframe
+              src={apodData.url}
+              title={apodData.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="apod-video"
+            ></iframe>
+          )}
+          
+          <div className="apod-explanation">
+            <h3>Explanation</h3>
+            <p>{apodData.explanation}</p>
+          </div>
+        </>
+      );
+    }
+
+    return null;
+  };
+
+  return (
+    <div className="apod-page animate-fade-in">
+      <button onClick={onBackClick} className="back-button">
+        <ArrowLeft size={18} /> Back to Home
+      </button>
+      {renderContent()}
+    </div>
+  );
 }
 
 export default ApodPage;
+

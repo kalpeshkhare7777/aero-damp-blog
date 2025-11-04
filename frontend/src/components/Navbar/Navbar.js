@@ -86,6 +86,7 @@ function Navbar({ setCurrentPage }) {
                     <NavItem icon={<Users size={18}/>} label="Council" onClick={() => setCurrentPage('council')} />
                     <NavItem icon={<Link size={18}/>} label="Links" onClick={() => setCurrentPage('links')} />
                     <NavItem icon={<HelpCircle size={18}/>} label="FAQ" onClick={() => setCurrentPage('faq')} />
+                    <NavItem icon={<BookOpen size={18}/>} label="Handbook" onClick={() => setCurrentPage('handbook')} />
                     <div className="nav-divider"></div>
                     <MoreDropdown setCurrentPage={setCurrentPage} />
                 </div>
