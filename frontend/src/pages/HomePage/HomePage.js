@@ -30,12 +30,12 @@ function HomePage({ onNavigate }) {
                     Welcome to the digital gateway of the Aerospace Engineering department at IIT Bombay. This platform is your central resource for the Department Academic Mentorship Program (DAMP), designed to connect students with enriching projects, comprehensive course reviews, and our dedicated council.
                 </p>
                 {/* Updated button to use onNavigate */}
-                {/* <button 
+                <button 
                   className="button button-primary" 
                   onClick={() => onNavigate('apod')}
                 >
                     Astronomy Picture of the Day
-                </button> */}
+                </button> 
             </div>
         </div>
     );
