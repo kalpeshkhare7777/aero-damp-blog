@@ -17,7 +17,7 @@ function ProjectReviewsPage({ onProjectSelect }) {
 
   // Define the order of categories
   const categories = [
-    { key: 'SLP', title: 'SLP (Sophomore/Senior Level Project)' },
+    { key: 'SLP', title: 'SLP (Supervised Learning Project)' },
     { key: 'BTP', title: 'BTP (B.Tech. Project)' },
     { key: 'DDP', title: 'DDP (Dual Degree Project)' },
     { key: 'Other Projects', title: 'Other Projects (R&D, etc.)' },

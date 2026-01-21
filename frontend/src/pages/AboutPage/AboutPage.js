@@ -1,62 +1,44 @@
 import React from 'react';
-import './AboutPage.css';
 
+/**
+ * AboutPage component - DAMP ebong Aerospace Engineering bishoye tottho prodon kore.
+ * Styling ekhon ei file-ei thakbe jate resolution error na hoy.
+ */
 function AboutPage() {
   return (
-    <div className="about-page-container animate-fade-in">
-      <h1 className="page-main-title">About DAMP & Aerospace Engineering</h1>
+    <div className="animate-fade-in min-h-screen py-8">
 
-      {/* --- Message from the HoD --- */}
-      <div className="hod-message-card">
-        <p className="hod-text">
-          "The Department of Aerospace Engineering extends a warm welcome to all of you. 
-          Thank you for choosing Aerospace Engineering at IIT Bombay. Aerospace engineering 
-          is indeed a multi-disciplinary department offering exciting opportunities for 
-          learning. The department offers a carefully curated curriculum developed 
-          keeping in mind the needs of the aerospace industry and research labs of the country."
+      <div className="page-card">
+        <h1 className="page-title">
+          About DAMP & Aerospace Engineering
+        </h1>
+
+        <p className="page-text">
+          The Department Academic Mentorship Program (DAMP) is a student-driven initiative 
+          aimed at supporting the academic, professional, and personal growth of students 
+          within the Aerospace Engineering Department at IIT Bombay. Through structured 
+          peer mentorship, DAMP connects students with experienced seniors who provide 
+          guidance on coursework, projects, research opportunities, and navigating life 
+          at the institute, fostering a supportive and collaborative environment.
         </p>
-        <div className="hod-signature">
-          <strong>Prof. AM Pradeep</strong>
-          <span>Head of Department, Aerospace Engineering</span>
-        </div>
-      </div>
 
-      {/* --- Welcome to the Department --- */}
-      <div className="welcome-section">
-        <h2 className="section-title">Welcome to the Department</h2>
-        
-        <div className="welcome-content">
-          <div className="welcome-text">
-            <p>
-              Our curriculum offers the perfect mix of core and elective courses, 
-              enabling you to build a strong foundation in aerospace engineering 
-              while developing expertise in your chosen specialization.
-            </p>
-          </div>
+        <h2 className="page-title" style={{ fontSize: '1.75rem', marginTop: '2.5rem' }}>
+          Welcome to the Department
+        </h2>
 
-          <div className="welcome-text">
-            <p>
-              You will have numerous opportunities to apply theory to practice 
-              through exploratory projects (SLPs) and detailed B.Tech Projects (BTPs). 
-              These projects provide a unique perspective for carrying out research 
-              in cutting-edge areas of aerospace.
-            </p>
-          </div>
+        <p className="page-text">
+          The Department of Aerospace Engineering offers a rigorous, multidisciplinary 
+          curriculum designed to meet the needs of the aerospace industry and research 
+          laboratories. A balanced mix of core and elective courses enables students 
+          to build strong fundamentals while developing expertise in their chosen areas.
+        </p>
 
-          <div className="welcome-text">
-            <p>
-              You are part of a diverse batch of students from across the country, 
-              which provides incredible networking opportunities. We strongly 
-              encourage you to make the best use of this. A judicious mix of 
-              academics and co-curricular activities is essential for your 
-              overall personality development.
-            </p>
-          </div>
-        </div>
-
-        <p className="closing-message">
-          We wish you all the best and are hopeful that you will make the most 
-          of your stay at the institute!
+        <p className="page-text">
+          Students apply theory to practice through exploratory projects (SLPs) and 
+          B.Tech Projects (BTPs), gaining exposure to cutting-edge research and 
+          real-world problem solving. With a diverse student community and ample 
+          opportunities for collaboration and growth, the department encourages 
+          students to make the most of their academic journey at IIT Bombay.
         </p>
       </div>
     </div>
