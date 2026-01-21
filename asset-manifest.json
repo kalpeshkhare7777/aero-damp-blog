@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/aero-damp-blog/static/css/main.3575f7b5.css",
-    "main.js": "/aero-damp-blog/static/js/main.ee52c1f1.js",
+    "main.css": "/aero-damp-blog/static/css/main.771b3a9c.css",
+    "main.js": "/aero-damp-blog/static/js/main.bf9895d2.js",
     "static/js/453.670e15c7.chunk.js": "/aero-damp-blog/static/js/453.670e15c7.chunk.js",
     "static/media/bgvid.mp4": "/aero-damp-blog/static/media/bgvid.4434317d5a721ee684c1.mp4",
     "static/media/handbook.pdf": "/aero-damp-blog/static/media/handbook.e338ad62920f05617ea1.pdf",
     "index.html": "/aero-damp-blog/index.html",
-    "main.3575f7b5.css.map": "/aero-damp-blog/static/css/main.3575f7b5.css.map",
-    "main.ee52c1f1.js.map": "/aero-damp-blog/static/js/main.ee52c1f1.js.map",
+    "main.771b3a9c.css.map": "/aero-damp-blog/static/css/main.771b3a9c.css.map",
+    "main.bf9895d2.js.map": "/aero-damp-blog/static/js/main.bf9895d2.js.map",
     "453.670e15c7.chunk.js.map": "/aero-damp-blog/static/js/453.670e15c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3575f7b5.css",
-    "static/js/main.ee52c1f1.js"
+    "static/css/main.771b3a9c.css",
+    "static/js/main.bf9895d2.js"
   ]
 }
