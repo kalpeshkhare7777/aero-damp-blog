@@ -162,7 +162,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Navbar now just sets hashes, App.js listens */}
       <Navbar />
       <main className="main-content container">
         {renderPage()}
